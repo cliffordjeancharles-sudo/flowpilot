@@ -1,1 +1,864 @@
-{"type":"error","error":{"type":"not_found_error","message":"File not found in container: /mnt/user-data/outputs/flowpilot-portal.html","details":{"error_visibility":"user_facing"}},"request_id":"req_011CZos2aUigXJmPTZq8foFY"}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowPilot — Growth Engine Hub</title>
+  <meta name="description" content="FlowPilot helps businesses capture more leads, automate follow-up, simplify operations, and create a smoother path from inquiry to booked client." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1f2e'/%3E%3Cpath d='M50 8C50 8 55 36 64 46C73 56 92 50 92 50C92 50 73 44 64 54C55 64 50 92 50 92C50 92 45 64 36 54C27 44 8 50 8 50C8 50 27 56 36 46C45 36 50 8 50 8Z' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2360b8ff'/%3E%3Cstop offset='100%25' stop-color='%231d6fff'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+/* ============================================================
+   FlowPilot — Growth Engine Hub
+   Stylesheet
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── VARIABLES ── */
+:root {
+  --bg:         #0a0a0a;
+  --bg2:        #111111;
+  --bg3:        #161616;
+  --card:       #1a1a1a;
+  --border:     #2a2a2a;
+  --blue:       #3B6FFF;
+  --blue-light: #60b8ff;
+  --blue-dim:   rgba(59,111,255,0.12);
+  --green:      #22c55e;
+  --green-dim:  rgba(34,197,94,0.12);
+  --white:      #ffffff;
+  --gray:       #8a8a8a;
+  --gray2:      #555;
+  --font:       'Inter', -apple-system, sans-serif;
+}
+
+/* ── BASE ── */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+/* ── NAVBAR ── */
+header {
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 1px solid rgba(42,42,42,0.5);
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo-icon {
+  width: 40px; height: 40px; border-radius: 16px;
+  border: 1px solid rgba(59,111,255,0.3);
+  background: rgba(59,111,255,0.1);
+  box-shadow: 0 0 24px rgba(59,111,255,0.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo-text p:first-child { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); line-height: 1; }
+.nav-logo-text p:last-child  { font-size: 0.88rem; font-weight: 600; color: var(--white); line-height: 1.3; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-links a {
+  display: inline-block; padding: 0.5rem 0.75rem; border-radius: 8px;
+  font-size: 0.88rem; color: var(--gray); text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover { background: #1e1e1e; color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.btn-nav {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--blue); color: #fff; text-decoration: none;
+  font-size: 0.88rem; font-weight: 600; font-family: var(--font);
+  padding: 0 0.75rem; height: 36px; border-radius: 6px; border: none; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59,111,255,0.3);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.btn-nav:hover  { background: #2a5ce6; box-shadow: 0 8px 20px rgba(59,111,255,0.4); transform: scale(1.02); }
+.btn-nav:active { transform: scale(0.98); }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 8px; color: var(--gray); transition: background 0.15s; }
+.hamburger:hover { background: #1e1e1e; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh; padding: 120px 2rem 80px;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 20%, rgba(34,197,94,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 60%, rgba(59,111,255,0.06) 0%, transparent 60%),
+    var(--bg);
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 0.4rem 1rem; font-size: 0.82rem; color: var(--gray); margin-bottom: 1.5rem;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50%      { opacity: .8; box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+.hero-h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.05;
+  letter-spacing: -0.03em; margin-bottom: 1.25rem;
+}
+.hero-h1 .accent {
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-style: italic;
+}
+.hero-sub   { font-size: 1.05rem; color: var(--gray); margin-bottom: 2rem; max-width: 480px; line-height: 1.7; }
+.hero-btns  { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.hero-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero-pill  {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--gray);
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--blue); color: #fff; border: none; cursor: pointer;
+  padding: 0.85rem 1.75rem; border-radius: 10px; font-size: 0.95rem;
+  font-weight: 700; font-family: var(--font); display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover { background: #2a5ce6; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,111,255,0.3); }
+.btn-outline {
+  background: transparent; color: var(--white); border: 1px solid var(--border); cursor: pointer;
+  padding: 0.85rem 1.75rem; border-radius: 10px; font-size: 0.95rem;
+  font-weight: 600; font-family: var(--font); display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--blue); background: rgba(59,111,255,0.07); }
+
+/* ── DASHBOARD CARD ── */
+.dashboard-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+.dash-header { display: flex; align-items: center; justify-content: space-between; }
+.dash-title  { font-size: 0.78rem; color: var(--gray); }
+.dash-name   { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
+.dash-badge  {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--green);
+}
+.dash-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+.dash-stats  { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.stat-box    { background: #111; border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1rem; }
+.stat-label  { font-size: 0.75rem; color: var(--gray); margin-bottom: 4px; }
+.stat-num    { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+.stat-sub    { font-size: 0.72rem; margin-top: 4px; }
+.stat-sub.green { color: var(--green); }
+.stat-sub.blue  { color: var(--blue-light); }
+.flow-label  { font-size: 0.75rem; color: var(--gray); margin-bottom: 0.6rem; }
+.flow-pills  { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.flow-pill   { background: #111; border: 1px solid var(--border); border-radius: 8px; padding: 0.3rem 0.7rem; font-size: 0.72rem; color: var(--white); }
+.flow-arrow  { color: var(--gray); font-size: 0.7rem; }
+.dash-activity { border-top: 1px solid var(--border); padding-top: 0.85rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.activity-row  { display: flex; align-items: center; gap: 0.55rem; font-size: 0.73rem; color: var(--gray); }
+.activity-dot  { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.activity-dot.g { background: var(--green); }
+.activity-dot.b { background: var(--blue); }
+.activity-dot.y { background: #f59e0b; }
+.activity-time  { margin-left: auto; color: var(--gray2); font-size: 0.67rem; flex-shrink: 0; }
+
+/* ── INTEGRATIONS ── */
+.integrations {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0; overflow: hidden; background: var(--bg2);
+}
+.integrations-track {
+  display: flex; gap: 3rem; align-items: center;
+  animation: marquee 28s linear infinite; white-space: nowrap; width: max-content;
+}
+.integrations:hover .integrations-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+.int-logo { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: #3a3a3a; text-transform: uppercase; }
+
+/* ── SHARED SECTION ── */
+section { padding: 6rem 2rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.section-sub   { font-size: 1rem; color: var(--gray); max-width: 560px; line-height: 1.7; }
+
+/* ── ABOUT ── */
+#about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+.about-left .section-title { font-size: clamp(1.7rem, 3vw, 2.6rem); }
+.about-left p { color: var(--gray); line-height: 1.8; margin-top: 1rem; font-size: 0.97rem; }
+.about-checks { display: flex; flex-direction: column; gap: 0.75rem; }
+.check-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1rem 1.25rem; font-size: 0.92rem; font-weight: 500;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.check-card:hover { border-color: rgba(59,111,255,0.4); transform: translateX(4px); }
+.check-icon { color: var(--green); flex-shrink: 0; }
+
+/* ── SERVICES ── */
+#services { background: var(--bg2); }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
+.service-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.75rem; transition: border-color 0.25s, transform 0.2s; cursor: default;
+}
+.service-card:hover { border-color: rgba(59,111,255,0.5); transform: translateY(-3px); }
+.service-icon {
+  width: 44px; height: 44px; background: rgba(59,111,255,0.15);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.1rem; color: var(--blue);
+}
+.service-card h3  { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+.service-card p   { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+.service-tag-row  { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+.service-tag {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 0.2rem 0.55rem; font-size: 0.7rem; color: var(--gray2);
+}
+
+/* ── PROCESS ── */
+#process { background: var(--bg); }
+.process-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
+.process-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2rem; transition: border-color 0.25s; position: relative; overflow: hidden;
+}
+.process-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.process-card:hover         { border-color: rgba(59,111,255,0.4); }
+.process-card:hover::before { opacity: 1; }
+.process-num  { font-size: 3rem; font-weight: 900; color: #2a2a2a; line-height: 1; margin-bottom: 0.5rem; }
+.process-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+.process-card p  { font-size: 0.9rem; color: var(--gray); line-height: 1.65; }
+
+/* ── RESULTS ── */
+#results { background: var(--bg2); }
+.results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+.result-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.75rem; transition: border-color 0.2s;
+}
+.result-card:hover { border-color: rgba(59,111,255,0.35); }
+.result-num {
+  font-size: 2.8rem; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.result-label { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+.result-sub   { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+
+/* ── PRICING ── */
+#pricing { background: var(--bg); }
+.pricing-header { text-align: center; margin-bottom: 3rem; }
+.pricing-grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.pricing-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+  padding: 2rem; position: relative; transition: border-color 0.25s, transform 0.2s;
+}
+.pricing-card:hover    { border-color: rgba(59,111,255,0.4); transform: translateY(-4px); }
+.pricing-card.featured { border-color: rgba(59,111,255,0.5); background: linear-gradient(145deg, #121a2e 0%, #1a1a1a 100%); }
+.pricing-card.featured:hover { border-color: rgba(59,111,255,0.8); }
+.popular-badge {
+  display: inline-block; background: var(--green-dim); border: 1px solid rgba(34,197,94,0.3);
+  color: var(--green); font-size: 0.72rem; font-weight: 700;
+  padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.plan-badge {
+  display: inline-block; background: var(--blue-dim); border: 1px solid rgba(59,111,255,0.25);
+  color: var(--blue-light); font-size: 0.72rem; font-weight: 700;
+  padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.pricing-title    { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+.pricing-subtitle { font-size: 0.85rem; color: var(--gray); margin-bottom: 1.25rem; }
+.pricing-price    { font-size: 3rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.5rem; line-height: 1; }
+.pricing-price sup   { font-size: 1.5rem; font-weight: 700; vertical-align: top; margin-top: 0.4rem; }
+.pricing-price .mo   { font-size: 1rem; color: var(--gray); font-weight: 400; }
+.pricing-price .setup { display: block; font-size: 0.78rem; color: var(--gray); font-weight: 400; margin-top: 0.3rem; }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.9rem; line-height: 1.5; }
+.pricing-features li svg { color: var(--green); flex-shrink: 0; margin-top: 2px; }
+.btn-pricing {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--blue); color: #fff; border: none; cursor: pointer;
+  width: 100%; padding: 0.9rem; border-radius: 10px; font-size: 0.95rem;
+  font-weight: 700; font-family: var(--font); text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-pricing:hover          { background: #2a5ce6; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,111,255,0.3); }
+.btn-pricing.outline        { background: transparent; border: 1px solid var(--border); color: var(--white); }
+.btn-pricing.outline:hover  { border-color: var(--blue); background: var(--blue-dim); box-shadow: none; }
+
+/* ── CONTACT ── */
+#contact { background: var(--bg2); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+.contact-value-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+.contact-value { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 0.92rem; color: var(--gray); }
+.contact-value-icon {
+  width: 36px; height: 36px; border-radius: 9px; background: var(--blue-dim);
+  display: flex; align-items: center; justify-content: center; color: var(--blue); flex-shrink: 0;
+}
+.contact-value-text strong { display: block; color: var(--white); font-weight: 600; margin-bottom: 2px; font-size: 0.9rem; }
+.contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+.contact-card h3  { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+.contact-card > p { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.75rem; line-height: 1.65; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--gray); margin-bottom: 0.4rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 9px;
+  color: var(--white); font-family: var(--font); font-size: 0.92rem; padding: 0.75rem 1rem;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none;
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--gray2); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,111,255,0.15); }
+.form-group select option { background: #1a1a1a; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+/* ── CLIENT LOGIN ── */
+#client-login { background: var(--bg); padding: 4rem 2rem; }
+.client-login-card {
+  max-width: 1200px; margin: 0 auto;
+  background: linear-gradient(135deg, #0f1520 0%, var(--card) 100%);
+  border: 1px solid rgba(59,111,255,0.2); border-radius: 20px;
+  padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.client-login-left .section-label { margin-bottom: 0.5rem; }
+.client-login-left h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+.client-login-left p  { font-size: 0.9rem; color: var(--gray); }
+.btn-secondary {
+  background: var(--card); color: var(--white); border: 1px solid var(--border); cursor: pointer;
+  padding: 0.85rem 1.75rem; border-radius: 10px; font-size: 0.92rem;
+  font-weight: 600; font-family: var(--font); display: inline-flex; align-items: center; gap: 6px;
+  text-decoration: none; white-space: nowrap; transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover { border-color: var(--blue); background: rgba(59,111,255,0.08); }
+
+/* ── FOOTER ── */
+footer { background: var(--bg); border-top: 1px solid var(--border); padding: 1.75rem 2rem; }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; }
+.footer-brand-icon {
+  width: 28px; height: 28px; border-radius: 7px; background: #1a1f2e;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.footer-copy  { font-size: 0.8rem; color: var(--gray2); }
+.footer-links { display: flex; gap: 1.75rem; }
+.footer-links a { font-size: 0.8rem; color: var(--gray2); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+
+/* ── ANIMATIONS ── */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE NAV ── */
+.mobile-nav {
+  display: none; position: fixed; top: 73px; left: 0; right: 0; z-index: 99;
+  background: rgba(10,10,10,0.98); border-bottom: 1px solid var(--border);
+  flex-direction: column; padding: 1.25rem 2rem 1.5rem; gap: 1rem;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a { color: var(--gray); text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.4rem 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .hero-inner, .about-grid, .services-grid, .process-grid, .contact-grid { grid-template-columns: 1fr; }
+  .nav-links, .btn-nav { display: none; }
+  .hamburger { display: block; }
+  .client-login-card { flex-direction: column; }
+}
+@media (max-width: 640px) {
+  section { padding: 4rem 1.25rem; }
+  .hero-h1 { font-size: 2rem; }
+  .results-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<header id="site-header">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="fp-star" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#60b8ff"/>
+              <stop offset="100%" stop-color="#1d6fff"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 8C50 8 55 36 64 46C73 56 92 50 92 50C92 50 73 44 64 54C55 64 50 92 50 92C50 92 45 64 36 54C27 44 8 50 8 50C8 50 27 56 36 46C45 36 50 8 50 8Z" fill="url(#fp-star)"/>
+        </svg>
+      </div>
+      <div class="nav-logo-text">
+        <p>FlowPilot</p>
+        <p>Growth Engine Hub</p>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#contact" class="btn-nav">
+        Start Now
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#process">Process</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn-primary" style="margin-top:0.5rem;justify-content:center;">Start Now →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="fade-in">
+      <div class="hero-badge"><span class="dot"></span>Automation systems for modern service businesses</div>
+      <h1 class="hero-h1">We build the<br><span class="accent">system behind</span><br>your growth.</h1>
+      <p class="hero-sub">FlowPilot helps businesses capture more leads, automate follow-up, simplify operations, and create a smoother path from inquiry to booked client.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Book a Strategy Call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#services" class="btn-outline">Explore Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="hero-pills">
+        <div class="hero-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Faster response time</div>
+        <div class="hero-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>More booked appointments</div>
+        <div class="hero-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Less manual follow-up</div>
+      </div>
+    </div>
+
+    <div class="dashboard-card fade-in" style="transition-delay:0.15s">
+      <div class="dash-header">
+        <div><div class="dash-title">Live Pipeline</div><div class="dash-name">Growth Dashboard</div></div>
+        <div class="dash-badge"><span class="dot"></span> Active</div>
+      </div>
+      <div class="dash-stats">
+        <div class="stat-box"><div class="stat-label">New Leads</div><div class="stat-num">148</div><div class="stat-sub green">↑ 24% this month</div></div>
+        <div class="stat-box"><div class="stat-label">Booked Calls</div><div class="stat-num">37</div><div class="stat-sub blue">Automated routing live</div></div>
+      </div>
+      <div>
+        <div class="flow-label">Automation Flow</div>
+        <div class="flow-pills">
+          <div class="flow-pill">Form Submitted</div><span class="flow-arrow">→</span>
+          <div class="flow-pill">Tagged</div><span class="flow-arrow">→</span>
+          <div class="flow-pill">SMS Sent</div><span class="flow-arrow">→</span>
+          <div class="flow-pill">Email Sent</div><span class="flow-arrow">→</span>
+          <div class="flow-pill">Booked</div>
+        </div>
+      </div>
+      <div class="dash-activity">
+        <div class="activity-row"><span class="activity-dot g"></span>New lead captured — HVAC inquiry<span class="activity-time">2m ago</span></div>
+        <div class="activity-row"><span class="activity-dot b"></span>Follow-up SMS sent automatically<span class="activity-time">2m ago</span></div>
+        <div class="activity-row"><span class="activity-dot y"></span>Appointment booked — Roofing estimate<span class="activity-time">11m ago</span></div>
+        <div class="activity-row"><span class="activity-dot g"></span>Missed call recovered — Plumbing<span class="activity-time">34m ago</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTEGRATIONS ── -->
+<div class="integrations">
+  <div class="integrations-track">
+    <span class="int-logo">HighLevel</span><span class="int-logo">Zapier</span><span class="int-logo">Notion</span><span class="int-logo">Calendly</span><span class="int-logo">Stripe</span><span class="int-logo">Slack</span><span class="int-logo">Google</span><span class="int-logo">Meta Ads</span><span class="int-logo">Twilio</span>
+    <span class="int-logo">HighLevel</span><span class="int-logo">Zapier</span><span class="int-logo">Notion</span><span class="int-logo">Calendly</span><span class="int-logo">Stripe</span><span class="int-logo">Slack</span><span class="int-logo">Google</span><span class="int-logo">Meta Ads</span><span class="int-logo">Twilio</span>
+    <span class="int-logo">HighLevel</span><span class="int-logo">Zapier</span><span class="int-logo">Notion</span><span class="int-logo">Calendly</span><span class="int-logo">Stripe</span><span class="int-logo">Slack</span><span class="int-logo">Google</span><span class="int-logo">Meta Ads</span><span class="int-logo">Twilio</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid fade-in">
+      <div class="about-left">
+        <div class="section-label">ABOUT</div>
+        <h2 class="section-title">Built to remove friction from how your business grows.</h2>
+        <p>Most businesses don't need more tools — they need a better system. FlowPilot combines automation, CRM strategy, and operational thinking to create a smoother customer journey from first click to signed client.</p>
+        <p style="margin-top:0.75rem;">We specialize in home services, realtors, and local service businesses — where a missed call or slow follow-up is the difference between a booked job and a lost one.</p>
+      </div>
+      <div class="about-checks">
+        <div class="check-card"><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Clean systems that feel premium and work on day one</div>
+        <div class="check-card"><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Automations that save your team hours every single week</div>
+        <div class="check-card"><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>CRM pipelines that keep every lead organized and followed up</div>
+        <div class="check-card"><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Done-for-you setup — we build it, you run it</div>
+        <div class="check-card"><svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Systems designed to scale as your business grows</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">What we build for you</h2>
+      <p class="section-sub">Every system is custom-configured for your business — no templates, no guesswork.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>Missed Call Text-Back</h3>
+        <p>When a lead calls and you don't answer, they get an instant automated SMS — keeping them engaged before they call your competitor.</p>
+        <div class="service-tag-row"><span class="service-tag">SMS Automation</span><span class="service-tag">GoHighLevel</span><span class="service-tag">48hr Setup</span></div>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.05s">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>Booking & Appointment Systems</h3>
+        <p>A fully automated booking pipeline — from lead capture to confirmed appointment, with reminders and follow-ups handled automatically.</p>
+        <div class="service-tag-row"><span class="service-tag">Calendar Integration</span><span class="service-tag">Auto-Reminders</span><span class="service-tag">No-Show Recovery</span></div>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.1s">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>CRM & Pipeline Setup</h3>
+        <p>A clean, organized CRM in GoHighLevel — with custom stages, tags, and automated follow-up sequences so no lead falls through the cracks.</p>
+        <div class="service-tag-row"><span class="service-tag">GoHighLevel CRM</span><span class="service-tag">Pipeline Stages</span><span class="service-tag">Lead Tagging</span></div>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.15s">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>AI Chat & Lead Qualification</h3>
+        <p>An AI-powered chat widget that answers FAQs, qualifies leads 24/7, and books appointments — so you wake up to confirmed jobs in your calendar.</p>
+        <div class="service-tag-row"><span class="service-tag">AI Chatbot</span><span class="service-tag">24/7 Coverage</span><span class="service-tag">Lead Scoring</span></div>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.2s">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Lead Generation Systems</h3>
+        <p>Facebook & Instagram ad funnels with landing pages and instant lead capture — built and configured to bring in qualified leads consistently.</p>
+        <div class="service-tag-row"><span class="service-tag">Meta Ads</span><span class="service-tag">Landing Pages</span><span class="service-tag">Lead Funnels</span></div>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.25s">
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Full Automation Workflows</h3>
+        <p>Multi-step automation flows triggered by forms, calls, or tags — sequences that nurture leads, send review requests, and re-engage cold contacts.</p>
+        <div class="service-tag-row"><span class="service-tag">Email + SMS Sequences</span><span class="service-tag">Review Requests</span><span class="service-tag">Re-engagement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-label">HOW IT WORKS</div>
+      <h2 class="section-title">From call to live system in days, not months.</h2>
+      <p class="section-sub">We keep the process lean and fast — most clients are fully live within 5–7 business days.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card fade-in"><div class="process-num">01</div><h3>Strategy Call</h3><p>We start with a 30-minute call to understand your business, your current follow-up process, and where the biggest revenue leaks are. No fluff — just diagnosis and a clear plan.</p></div>
+      <div class="process-card fade-in" style="transition-delay:0.05s"><div class="process-num">02</div><h3>System Build</h3><p>We configure your GoHighLevel account, build your automation workflows, set up your CRM pipeline, and connect everything together. You don't touch a thing.</p></div>
+      <div class="process-card fade-in" style="transition-delay:0.1s"><div class="process-num">03</div><h3>Review & Go Live</h3><p>We walk you through everything on a live screen-share, make any final adjustments, and flip the switch. Your system is live and capturing leads from day one.</p></div>
+      <div class="process-card fade-in" style="transition-delay:0.15s"><div class="process-num">04</div><h3>Ongoing Support</h3><p>We monitor performance, make tweaks based on data, and are available via chat when you need us. As your business grows, your system grows with it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTS ── -->
+<section id="results">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center">
+      <div class="section-label" style="display:block">RESULTS</div>
+      <h2 class="section-title" style="max-width:600px;margin:0 auto 0.75rem">What clients see after going live</h2>
+      <p class="section-sub" style="margin:0 auto">Real outcomes businesses experience when their lead follow-up is finally automated.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card fade-in"><div class="result-num">3×</div><div class="result-label">More leads converted</div><div class="result-sub">Businesses that follow up within 5 minutes are 21× more likely to qualify a lead. Our automation responds instantly.</div></div>
+      <div class="result-card fade-in" style="transition-delay:0.07s"><div class="result-num">48h</div><div class="result-label">Average time to go live</div><div class="result-sub">From signed agreement to a fully active system — most clients are capturing and converting leads within two business days.</div></div>
+      <div class="result-card fade-in" style="transition-delay:0.14s"><div class="result-num">80%</div><div class="result-label">Reduction in manual follow-up</div><div class="result-sub">Automated sequences handle the repetitive work so your team can focus on closing, not chasing.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="pricing-header fade-in">
+      <div class="section-label">PRICING</div>
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-sub" style="margin:0 auto">All plans include done-for-you setup. No hidden fees, no long-term contracts required.</p>
+    </div>
+    <div class="pricing-grid fade-in" style="transition-delay:0.1s">
+      <div class="pricing-card">
+        <div class="plan-badge">Starter</div>
+        <div class="pricing-title">Foundation</div>
+        <div class="pricing-subtitle">For businesses getting their system in place</div>
+        <div class="pricing-price"><sup>$</sup>497<span class="mo">/mo</span><span class="setup">+ $497 one-time setup</span></div>
+        <ul class="pricing-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Missed call text-back automation</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>CRM + pipeline setup (GHL)</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Appointment booking system</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Basic email + SMS follow-up sequence</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Monthly performance check-in</li>
+        </ul>
+        <a href="#contact" class="btn-pricing outline">Get Started <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">⚡ Most Popular</div>
+        <div class="pricing-title">Growth Engine</div>
+        <div class="pricing-subtitle">For businesses ready to scale aggressively</div>
+        <div class="pricing-price"><sup>$</sup>997<span class="mo">/mo</span><span class="setup">+ $997 one-time setup</span></div>
+        <ul class="pricing-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Everything in Foundation</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI chatbot + lead qualification</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Advanced multi-step automation flows</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Facebook/Instagram ad funnel setup</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Review request automation</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Bi-weekly strategy calls</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Priority support via Slack/chat</li>
+        </ul>
+        <a href="#contact" class="btn-pricing">Book a Strategy Call <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-badge">Premium</div>
+        <div class="pricing-title">Authority</div>
+        <div class="pricing-subtitle">Full-stack growth system, fully managed</div>
+        <div class="pricing-price"><sup>$</sup>1,997<span class="mo">/mo</span><span class="setup">+ $1,497 one-time setup</span></div>
+        <ul class="pricing-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Everything in Growth Engine</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Fully managed ad campaigns</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Custom landing page design</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Full client portal access</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Weekly reporting dashboard</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Dedicated account manager</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Unlimited automation builds</li>
+        </ul>
+        <a href="#contact" class="btn-pricing outline">Apply Now <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-label">GET IN TOUCH</div>
+        <h2 class="section-title">Let's build your growth system.</h2>
+        <p class="section-sub">Tell us about your business and we'll put together a custom plan. Most clients are live within 48 hours of signing.</p>
+        <div class="contact-value-list">
+          <div class="contact-value">
+            <div class="contact-value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div class="contact-value-text"><strong>Fast Setup</strong>Most systems go live within 48 hours of your strategy call.</div>
+          </div>
+          <div class="contact-value">
+            <div class="contact-value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="contact-value-text"><strong>Done-For-You</strong>We handle the entire build. You just review and approve.</div>
+          </div>
+          <div class="contact-value">
+            <div class="contact-value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="contact-value-text"><strong>Ongoing Support</strong>We're in your corner after launch — not just during setup.</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card fade-in" style="transition-delay:0.12s;padding:1.25rem;">
+        <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;">Book a Strategy Call</h3>
+        <p style="font-size:0.88rem;color:var(--gray);margin-bottom:1.25rem;line-height:1.65;">Fill out the form below and we'll reach out within 24 hours to schedule your free strategy session.</p>
+        <div style="border-radius:12px;overflow:hidden;background:#1A1A1A;isolation:isolate;">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/FcRhS5aKJjTLWYEA2guJ"
+            style="width:100%;height:589px;border:none;display:block;"
+            id="inline-FcRhS5aKJjTLWYEA2guJ"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="FlowPilot Opt-In"
+            data-height="589"
+            data-layout-iframe-id="inline-FcRhS5aKJjTLWYEA2guJ"
+            data-form-id="FcRhS5aKJjTLWYEA2guJ"
+            title="FlowPilot Opt-In"
+          ></iframe>
+        </div>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLIENT LOGIN ── -->
+<section id="client-login">
+  <div class="client-login-card">
+    <div class="client-login-left">
+      <div class="section-label">EXISTING CLIENTS</div>
+      <h2>Access your client portal</h2>
+      <p>Track your leads, review automation performance, and manage your account — all in one place.</p>
+    </div>
+    <a href="#" class="btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Client Login
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-icon">
+        <svg viewBox="0 0 100 100" fill="none" width="17" height="17" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="f2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#60b8ff"/><stop offset="100%" stop-color="#1d6fff"/></linearGradient></defs>
+          <path d="M50 8C50 8 55 36 64 46C73 56 92 50 92 50C92 50 73 44 64 54C55 64 50 92 50 92C50 92 45 64 36 54C27 44 8 50 8 50C8 50 27 56 36 46C45 36 50 8 50 8Z" fill="url(#f2)"/>
+        </svg>
+      </div>
+      <span class="footer-copy">© 2025 FlowPilot. All rights reserved.</span>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   FlowPilot — Growth Engine Hub
+   JavaScript
+   ============================================================ */
+
+/* ── SCROLL FADE-IN ── */
+// Watches for elements with class "fade-in" and adds "visible"
+// once they enter the viewport, triggering the CSS transition
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+
+/* ── MOBILE HAMBURGER MENU ── */
+// Toggles the mobile nav open/closed when the hamburger is clicked
+// Also closes the nav when any mobile nav link is tapped
+const ham       = document.getElementById('ham');
+const mobileNav = document.getElementById('mobile-nav');
+
+ham.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+  });
+});
+
+
+/* ── NAVBAR SCROLL EFFECT ── */
+// Slightly darkens the navbar border as the user scrolls down
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('site-header');
+  if (window.scrollY > 20) {
+    header.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+  } else {
+    header.style.borderBottomColor = 'rgba(42,42,42,0.5)';
+  }
+});
+
+
+/* ── ACTIVE NAV LINK HIGHLIGHT ── */
+// Highlights the nav link that matches the current section in view
+const sections  = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.style.color = '';
+      });
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.style.color = '#ffffff';
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(section => sectionObserver.observe(section));
+
+
+/* ── SMOOTH SCROLL FOR ALL ANCHOR LINKS ── */
+// Adds a small offset so sections don't hide behind the sticky navbar
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+</script>
+</body>
+</html>
